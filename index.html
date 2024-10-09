@@ -1,1 +1,148 @@
-<h1>kjwefhkjehkjf</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Timeline</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Center vertical line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #FF9F55;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        /* Timeline containers */
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        /* Left side timeline */
+        .timeline-item.left {
+            left: 0;
+        }
+
+        /* Right side timeline */
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        /* Circles on the timeline */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #FF9F55;
+            border: 4px solid white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Circle on the left */
+        .timeline-item.left::after {
+            left: 100%;
+            margin-left: -10px;
+        }
+
+        /* Circle on the right */
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        /* Content styling */
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive layout for mobile */
+        @media screen and (max-width: 768px) {
+            /* Full width for mobile */
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 25px;
+            }
+
+            /* Move all events to the right, and line to the left */
+            .timeline-item.right,
+            .timeline-item.left {
+                left: 0;
+            }
+
+            /* Move the circles to the left side */
+            .timeline-item::after {
+                left: 10px;
+            }
+
+            /* Move center line to the left */
+            .timeline::after {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="timeline">
+    <div class="timeline-item left">
+        <div class="content">
+            <h2>Event 1</h2>
+            <p>This is the description for event 1. It appears on the left side on large screens and right side on mobile.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item right">
+        <div class="content">
+            <h2>Event 2</h2>
+            <p>This is the description for event 2. It appears on the right side on large screens and right side on mobile.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item left">
+        <div class="content">
+            <h2>Event 3</h2>
+            <p>This is the description for event 3. It appears on the left side on large screens and right side on mobile.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item right">
+        <div class="content">
+            <h2>Event 4</h2>
+            <p>This is the description for event 4. It appears on the right side on large screens and right side on mobile.</p>
+        </div>
+    </div>
+
+    <!-- Add more timeline items as needed -->
+</div>
+
+</body>
+</html>
